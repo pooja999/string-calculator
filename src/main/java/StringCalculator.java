@@ -5,13 +5,17 @@ public class StringCalculator {
         }
         if (input.contains(",")) {
             String[] values = input.split(",");
-            return getSum(values[0], values[1]);
+            return getSum(values);
         }
         return Integer.parseInt(input);
     }
 
-    private static int getSum(String operandOne, String operandTwo) {
-        return Integer.parseInt(operandOne) + Integer.parseInt(operandTwo);
+    private static int getSum(String[] values) {
+        int sum = 0;
+        for(int i=0; i<values.length; i++) {
+            sum += Integer.parseInt(values[i]);
+        }
+        return sum;
     }
 
 }
