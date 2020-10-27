@@ -1,12 +1,17 @@
 public class StringCalculator {
     public static int add(String input) {
-        if(input.isEmpty()) {
+        if (input.isEmpty()) {
             return 0;
         }
-        if(input.contains(",")) {
+        if (input.contains(",")) {
             String[] values = input.split(",");
-            return Integer.parseInt(values[0])+Integer.parseInt(values[1]);
+            return getSum(values[0], values[1]);
         }
         return Integer.parseInt(input);
     }
+
+    private static int getSum(String operandOne, String operandTwo) {
+        return Integer.parseInt(operandOne) + Integer.parseInt(operandTwo);
+    }
+
 }
