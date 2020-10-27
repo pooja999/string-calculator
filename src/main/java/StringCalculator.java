@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class StringCalculator {
     public static int add(String input) {
         if (input.isEmpty()) {
@@ -12,8 +14,8 @@ public class StringCalculator {
 
     private static int getSum(String[] values) {
         int sum = 0;
-        for(int i=0; i<values.length; i++) {
-            sum += Integer.parseInt(values[i]);
+        for(String value: values) {
+            sum += Integer.parseInt(value);
         }
         return sum;
     }
