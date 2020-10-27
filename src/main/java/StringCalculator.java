@@ -5,13 +5,8 @@ public class StringCalculator {
         if (input.isEmpty()) {
             return 0;
         }
-        if (input.contains(",")) {
-            String[] values = input.split(",");
-            return getSum(values);
-        }
-
-        if(input.contains("\n")) {
-            String[] values = input.split("\n");
+        if (input.contains(",") || input.contains("\n")) {
+            String[] values = input.split(",|\n");
             return getSum(values);
         }
 
@@ -20,7 +15,7 @@ public class StringCalculator {
 
     private static int getSum(String[] values) {
         int sum = 0;
-        for(String value: values) {
+        for (String value : values) {
             sum += Integer.parseInt(value);
         }
         return sum;
