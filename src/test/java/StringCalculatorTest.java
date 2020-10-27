@@ -16,17 +16,9 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void shouldReturnSumForTwoNumbersSeparatedByComma() {
-        Assert.assertEquals(3,StringCalculator.add("1,2"));
-    }
-
-    @Test
-    public void shouldReturnSumForAnyAmountOfNumbersSeparatedByComma() {
-        Assert.assertEquals(6,StringCalculator.add("1,2,3"));
-    }
-
-    @Test
     public void shouldReturnSumForAnyAmountOfNumbersSeparatedByNewLineOrComma() {
+        Assert.assertEquals(3,StringCalculator.add("1,2"));
+        Assert.assertEquals(6,StringCalculator.add("1,2,3"));
         Assert.assertEquals(3,StringCalculator.add("1\n2"));
         Assert.assertEquals(6,StringCalculator.add("1\n2,3"));
     }
