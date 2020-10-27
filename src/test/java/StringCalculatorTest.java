@@ -24,4 +24,9 @@ public class StringCalculatorTest {
     public void shouldReturnSumForAnyAmountOfNumbersSeparatedByComma() {
         Assert.assertEquals(6,StringCalculator.add("1,2,3"));
     }
+
+    @Test
+    public void shouldReturnSumForAnyAmountOfNumbersSeparatedByNewLine() {
+        Assert.assertEquals(3,StringCalculator.add("1\n2"));
+    }
 }
