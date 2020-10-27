@@ -1,13 +1,21 @@
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringCalculator {
     public static int add(String input) {
         if (input.isEmpty()) {
             return 0;
         }
+
         if(input.startsWith("//")) {
-            return 1;
+            Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(input);
+            if (matcher.find()) {
+                String[] values = matcher.group(2).split(matcher.group(1));
+                return getSum(values);
+            }
         }
+
         if (input.contains(",") || input.contains("\n")) {
             String[] values = input.split(",|\n");
             return getSum(values);
