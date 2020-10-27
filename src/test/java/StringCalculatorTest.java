@@ -9,8 +9,9 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void shouldReturnValueForSingleDigit() {
+    public void shouldReturnValueForSingleNumber() {
         Assert.assertEquals(1,StringCalculator.add("1"));
         Assert.assertEquals(2,StringCalculator.add("2"));
+        Assert.assertEquals(10,StringCalculator.add("10"));
     }
 }
