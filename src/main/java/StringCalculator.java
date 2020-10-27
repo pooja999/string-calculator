@@ -9,6 +9,12 @@ public class StringCalculator {
             String[] values = input.split(",");
             return getSum(values);
         }
+
+        if(input.contains("\n")) {
+            String[] values = input.split("\n");
+            return getSum(values);
+        }
+
         return Integer.parseInt(input);
     }
 
