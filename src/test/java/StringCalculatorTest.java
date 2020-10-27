@@ -23,4 +23,8 @@ public class StringCalculatorTest {
         Assert.assertEquals(6,StringCalculator.add("1\n2,3"));
     }
 
+    @Test
+    public void shouldReturnSumForChangedDelimiter() {
+        Assert.assertEquals(1,StringCalculator.add("//;\n1"));
+    }
 }
