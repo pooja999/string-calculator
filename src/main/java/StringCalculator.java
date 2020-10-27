@@ -1,10 +1,7 @@
 public class StringCalculator {
     public static int add(String input) {
-        if("1".equals(input)) {
-            return 1;
-        }
-        if("2".equals(input)) {
-            return 2;
+        if(input.length()==1) {
+            return Integer.parseInt(input);
         }
         return 0;
     }
