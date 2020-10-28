@@ -46,4 +46,9 @@ public class StringCalculatorTest {
     public void shouldReturn0ForNumberGreaterThan1000() throws Exception {
         Assert.assertEquals(0, StringCalculator.add("1001"));
     }
+
+    @Test
+    public void shouldIgnoreForNumbersGreaterThan1000InASequence() throws Exception {
+        Assert.assertEquals(2,StringCalculator.add("2,1001"));
+    }
 }
