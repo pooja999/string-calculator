@@ -1,3 +1,4 @@
+import org.assertj.core.api.Assertions;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -27,5 +28,10 @@ public class StringCalculatorTest {
     public void shouldReturnSumForChangedDelimiter() {
         Assert.assertEquals(1,StringCalculator.add("//;\n1"));
         Assert.assertEquals(3,StringCalculator.add("//;\n1;2"));
+    }
+
+    @Test
+    public void shouldThrowAnExceptionForANegativeNumber() {
+        Assertions.assertThatThrownBy(() -> StringCalculator.add("-1")).hasMessage("negatives not allowed: -1");
     }
 }
