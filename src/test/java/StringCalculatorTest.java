@@ -62,4 +62,9 @@ public class StringCalculatorTest {
     public void shouldReturnSumForChangedDelimitersOfAnyLength() throws Exception {
         Assert.assertEquals(1,StringCalculator.add("//[,,,]\n1"));
     }
+
+    @Test
+    public void shouldReturnSumForMultipleDelimitersOfAnyLength() throws Exception {
+        Assert.assertEquals(6,StringCalculator.add("//[-][%]\n1-2%3"));
+    }
 }
