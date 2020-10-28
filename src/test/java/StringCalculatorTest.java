@@ -66,5 +66,6 @@ public class StringCalculatorTest {
     @Test
     public void shouldReturnSumForMultipleDelimitersOfAnyLength() throws Exception {
         Assert.assertEquals(6,StringCalculator.add("//[-][%]\n1-2%3"));
+        Assert.assertEquals(10,StringCalculator.add("//[-][%][#]\n1-2%3#4"));
     }
 }
