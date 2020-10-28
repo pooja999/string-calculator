@@ -25,8 +25,15 @@ public class StringCalculator {
         return parsedInput;
     }
 
-    private static int splitAndSum(String numbersWithDelimiter, String delimiter) {
+    private static int splitAndSum(String numbersWithDelimiter, String delimiter) throws Exception {
         String[] values = numbersWithDelimiter.split(delimiter);
+        for(String value:values) {
+            int parsedInput = Integer.parseInt(value);
+            if(parsedInput < 0) {
+                throw new Exception("negatives not allowed: "+parsedInput);
+            }
+        }
+
         return getSum(values);
     }
 
