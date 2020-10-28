@@ -18,8 +18,12 @@ public class StringCalculator {
             return splitAndSum(input, ",|\n");
         }
 
+        int parsedInput = Integer.parseInt(input);
+        if(parsedInput > 1000) {
+            return 0;
+        }
         checkForNegativeNumbers(input);
-        return Integer.parseInt(input);
+        return parsedInput;
     }
 
     private static int splitAndSum(String numbersWithDelimiter, String delimiter) throws Exception {
