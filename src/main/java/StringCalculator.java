@@ -20,7 +20,7 @@ public class StringCalculator {
 
         int parsedInput = Integer.parseInt(input);
         if(parsedInput < 0) {
-            throw new Exception("negatives not allowed: -1");
+            throw new Exception("negatives not allowed: "+parsedInput);
         }
         return parsedInput;
     }
