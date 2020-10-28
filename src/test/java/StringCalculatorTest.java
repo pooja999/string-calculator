@@ -68,4 +68,10 @@ public class StringCalculatorTest {
         Assert.assertEquals(6,StringCalculator.add("//[-][%]\n1-2%3"));
         Assert.assertEquals(10,StringCalculator.add("//[-][%][#]\n1-2%3#4"));
     }
+
+    @Test
+    public void shouldReturnSumForMultipleDelimiterWithLengthLongerThanOneChar() throws Exception {
+        Assert.assertEquals(6,StringCalculator.add("//[--][%]\n1--2%3"));
+        Assert.assertEquals(10,StringCalculator.add("//[--][%][###]\n1--2%3###4"));
+    }
 }
