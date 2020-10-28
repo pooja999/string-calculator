@@ -8,17 +8,13 @@ public class StringCalculator {
         }
 
         if(input.startsWith("//[")) {
-            Matcher matcher = Pattern.compile("\\[(.*)\\]\n(.*)").matcher(input);
-            if(matcher.find()) {
-                return splitAndSum(matcher.group(2),matcher.group(1));
-            }
+            Integer sum = getSumForChangedDelimiter(input, "\\[(.*)\\]\n(.*)");
+            if (sum != null) return sum;
         }
 
         if (input.startsWith("//")) {
-            Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(input);
-            if (matcher.find()) {
-                return splitAndSum(matcher.group(2), matcher.group(1));
-            }
+            Integer sum = getSumForChangedDelimiter(input, "//(.)\n(.*)");
+            if (sum != null) return sum;
         }
 
         if (input.contains(",") || input.contains("\n")) {
@@ -31,6 +27,14 @@ public class StringCalculator {
         }
         checkForNegativeNumbers(input);
         return parsedInput;
+    }
+
+    private static Integer getSumForChangedDelimiter(String input, String pattern) throws Exception {
+        Matcher matcher = Pattern.compile(pattern).matcher(input);
+        if (matcher.find()) {
+            return splitAndSum(matcher.group(2), matcher.group(1));
+        }
+        return null;
     }
 
     private static int splitAndSum(String numbersWithDelimiter, String delimiter) throws Exception {
