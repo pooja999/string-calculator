@@ -2,7 +2,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringCalculator {
-    public static int add(String input) {
+    public static int add(String input) throws Exception {
         if (input.isEmpty()) {
             return 0;
         }
@@ -17,7 +17,12 @@ public class StringCalculator {
         if (input.contains(",") || input.contains("\n")) {
             return splitAndSum(input, ",|\n");
         }
-        return Integer.parseInt(input);
+
+        int parsedInput = Integer.parseInt(input);
+        if(parsedInput < 0) {
+            throw new Exception("negatives not allowed: -1");
+        }
+        return parsedInput;
     }
 
     private static int splitAndSum(String numbersWithDelimiter, String delimiter) {

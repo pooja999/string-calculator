@@ -5,19 +5,19 @@ import org.junit.Test;
 public class StringCalculatorTest {
 
     @Test
-    public void shouldReturn0ForAnEmptyString() {
+    public void shouldReturn0ForAnEmptyString() throws Exception {
         Assert.assertEquals(0, StringCalculator.add(""));
     }
 
     @Test
-    public void shouldReturnValueForSingleNumber() {
+    public void shouldReturnValueForSingleNumber() throws Exception {
         Assert.assertEquals(1,StringCalculator.add("1"));
         Assert.assertEquals(2,StringCalculator.add("2"));
         Assert.assertEquals(10,StringCalculator.add("10"));
     }
 
     @Test
-    public void shouldReturnSumForAnyAmountOfNumbersSeparatedByNewLineOrComma() {
+    public void shouldReturnSumForAnyAmountOfNumbersSeparatedByNewLineOrComma() throws Exception {
         Assert.assertEquals(3,StringCalculator.add("1,2"));
         Assert.assertEquals(6,StringCalculator.add("1,2,3"));
         Assert.assertEquals(3,StringCalculator.add("1\n2"));
@@ -25,7 +25,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void shouldReturnSumForChangedDelimiter() {
+    public void shouldReturnSumForChangedDelimiter() throws Exception {
         Assert.assertEquals(1,StringCalculator.add("//;\n1"));
         Assert.assertEquals(3,StringCalculator.add("//;\n1;2"));
     }
