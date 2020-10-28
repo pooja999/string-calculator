@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,19 +7,22 @@ public class StringCalculator {
             return 0;
         }
 
-        if(input.startsWith("//")) {
+        if (input.startsWith("//")) {
             Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(input);
             if (matcher.find()) {
-                String[] values = matcher.group(2).split(matcher.group(1));
-                return getSum(values);
+                return splitAndSum(matcher.group(2), matcher.group(1));
             }
         }
 
         if (input.contains(",") || input.contains("\n")) {
-            String[] values = input.split(",|\n");
-            return getSum(values);
+            return splitAndSum(input, ",|\n");
         }
         return Integer.parseInt(input);
+    }
+
+    private static int splitAndSum(String numbersWithDelimiter, String delimiter) {
+        String[] values = numbersWithDelimiter.split(delimiter);
+        return getSum(values);
     }
 
     private static int getSum(String[] values) {
