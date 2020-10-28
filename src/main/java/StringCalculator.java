@@ -38,7 +38,10 @@ public class StringCalculator {
     private static int getSum(String[] values) {
         int sum = 0;
         for (String value : values) {
-            sum += Integer.parseInt(value);
+            int parsedInput = Integer.parseInt(value);
+            if(parsedInput <= 1000) {
+                sum += parsedInput;;
+            }
         }
         return sum;
     }
