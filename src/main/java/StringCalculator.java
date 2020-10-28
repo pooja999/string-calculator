@@ -18,20 +18,14 @@ public class StringCalculator {
             return splitAndSum(input, ",|\n");
         }
 
-        int parsedInput = Integer.parseInt(input);
-        if(parsedInput < 0) {
-            throw new Exception("negatives not allowed: "+parsedInput);
-        }
-        return parsedInput;
+        checkForNegativeNumbers(input);
+        return Integer.parseInt(input);
     }
 
     private static int splitAndSum(String numbersWithDelimiter, String delimiter) throws Exception {
         String[] values = numbersWithDelimiter.split(delimiter);
         for(String value:values) {
-            int parsedInput = Integer.parseInt(value);
-            if(parsedInput < 0) {
-                throw new Exception("negatives not allowed: "+parsedInput);
-            }
+            checkForNegativeNumbers(value);
         }
 
         return getSum(values);
@@ -43,6 +37,13 @@ public class StringCalculator {
             sum += Integer.parseInt(value);
         }
         return sum;
+    }
+
+    private static void checkForNegativeNumbers(String number) throws Exception {
+        int parsedInput = Integer.parseInt(number);
+        if(parsedInput < 0) {
+            throw new Exception("negatives not allowed: "+parsedInput);
+        }
     }
 
 }
