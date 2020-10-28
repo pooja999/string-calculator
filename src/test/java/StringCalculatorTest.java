@@ -50,5 +50,6 @@ public class StringCalculatorTest {
     @Test
     public void shouldIgnoreForNumbersGreaterThan1000InASequence() throws Exception {
         Assert.assertEquals(2,StringCalculator.add("2,1001"));
+        Assert.assertEquals(6,StringCalculator.add("//,\n1,2,1002,3"));
     }
 }
