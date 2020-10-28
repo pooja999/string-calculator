@@ -39,5 +39,6 @@ public class StringCalculatorTest {
     @Test
     public void shouldThrowAnExceptionForANegativeNumberInASequence() {
         Assertions.assertThatThrownBy(() -> StringCalculator.add("-1,2")).hasMessage("negatives not allowed: -1");
+        Assertions.assertThatThrownBy(() -> StringCalculator.add("//;\n1;-2")).hasMessage("negatives not allowed: -2");
     }
 }
