@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -12,7 +10,7 @@ public class StringCalculator {
         }
 
         if(input.startsWith("//[")) {
-            Integer sum = getSumForChangedDelimiter(input, "\\[(.*)\\]\n(.*)");
+            Integer sum = getSumForChangedDelimiter(input, "\\[(.*)\\]\\n(.*)");
             if (sum != null) return sum;
         }
 
@@ -36,7 +34,8 @@ public class StringCalculator {
     private static Integer getSumForChangedDelimiter(String input, String pattern) throws Exception {
         Matcher matcher = Pattern.compile(pattern).matcher(input);
         if (matcher.find()) {
-            return splitAndSum(matcher.group(2), matcher.group(1));
+            String splitRegex = matcher.group(1).replace("][", "|");
+            return splitAndSum(matcher.group(2), splitRegex);
         }
         return null;
     }
