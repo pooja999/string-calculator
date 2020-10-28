@@ -7,6 +7,13 @@ public class StringCalculator {
             return 0;
         }
 
+        if(input.startsWith("//[")) {
+            Matcher matcher = Pattern.compile("\\[(.*)\\]\n(.*)").matcher(input);
+            if(matcher.find()) {
+                return splitAndSum(matcher.group(2),matcher.group(1));
+            }
+        }
+
         if (input.startsWith("//")) {
             Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(input);
             if (matcher.find()) {
