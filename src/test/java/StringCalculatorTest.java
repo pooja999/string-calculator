@@ -52,4 +52,9 @@ public class StringCalculatorTest {
         Assert.assertEquals(2,StringCalculator.add("2,1001"));
         Assert.assertEquals(6,StringCalculator.add("//,\n1,2,1002,3"));
     }
+
+    @Test
+    public void shouldReturnSumForChangedDelimitersOfAnyLength() throws Exception {
+        Assert.assertEquals(1,StringCalculator.add("//[,,,]\n1"));
+    }
 }
