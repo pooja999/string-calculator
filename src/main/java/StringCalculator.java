@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -39,11 +43,24 @@ public class StringCalculator {
 
     private static int splitAndSum(String numbersWithDelimiter, String delimiter) throws Exception {
         String[] values = numbersWithDelimiter.split(delimiter);
-        for(String value:values) {
-            checkForNegativeNumbers(value);
+        checkForNegativeNumbers(values);
+        return getSum(values);
+    }
+
+    private static void checkForNegativeNumbers(String[] values) throws Exception {
+        List<String> negativeNumbers = new ArrayList<>();
+        boolean containsNegativeNumbers = false;
+        for (String value : values) {
+            int number = Integer.parseInt(value);
+            if (number < 0) {
+                containsNegativeNumbers = true;
+               negativeNumbers.add(value);
+            }
+        }
+        if (containsNegativeNumbers) {
+            throw new Exception("negatives not allowed: " + String.join(",", negativeNumbers));
         }
 
-        return getSum(values);
     }
 
     private static int getSum(String[] values) {
